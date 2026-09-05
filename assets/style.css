@@ -1,0 +1,305 @@
+/* ============================================================
+   Vermont Farmhouse — shared stylesheet for the recipe site
+   Palette: parchment cream, barn red, spruce green, maple brown,
+   goldenrod mustard. Two typefaces: Fraunces (display) + Karla (body).
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@400;500;700&display=swap');
+
+:root {
+  --cream:      #F1E8D2;
+  --cream-dark: #E7DBBE;
+  --barn-red:   #8A3324;
+  --spruce:     #33462E;
+  --maple:      #6B4A32;
+  --mustard:    #C89A3C;
+  --ink:        #2A2420;
+
+  --serif: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --sans:  'Karla', 'Segoe UI', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.6;
+  /* faint gingham-style crosshatch, like a kitchen tablecloth */
+  background-image:
+    linear-gradient(var(--cream-dark) 1px, transparent 1px),
+    linear-gradient(90deg, var(--cream-dark) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-position: -1px -1px;
+}
+
+a { color: var(--barn-red); }
+a:hover { color: var(--maple); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--mustard); outline-offset: 2px; }
+
+/* -------------------- header banner -------------------- */
+
+.barnboard {
+  background: repeating-linear-gradient(
+    180deg,
+    var(--maple) 0px,
+    #5c3e29 3px,
+    var(--maple) 6px,
+    #74543a 44px
+  );
+  border-bottom: 6px solid var(--barn-red);
+}
+
+.site-header {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 28px 24px 22px;
+}
+
+.site-header a {
+  color: var(--cream);
+  text-decoration: none;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: 0.01em;
+}
+
+.site-header .tagline {
+  color: var(--cream-dark);
+  font-size: 0.92rem;
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* -------------------- page shell -------------------- */
+
+main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+/* -------------------- index / list page -------------------- */
+
+.index-intro {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 0 0 6px;
+  color: var(--spruce);
+}
+
+.index-sub {
+  color: var(--maple);
+  margin: 0 0 32px;
+  font-size: 1.02rem;
+}
+
+.recipe-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--mustard);
+}
+
+.recipe-list li {
+  border-bottom: 1px solid var(--mustard);
+  padding: 20px 0;
+}
+
+.recipe-list h3 {
+  margin: 0 0 4px;
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.recipe-list h3 a { text-decoration: none; color: var(--ink); }
+.recipe-list h3 a:hover { color: var(--barn-red); }
+
+.recipe-list .meta {
+  color: var(--maple);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.tag {
+  display: inline-block;
+  background: var(--spruce);
+  color: var(--cream);
+  font-size: 0.72rem;
+  padding: 2px 9px;
+  border-radius: 3px;
+  margin-right: 6px;
+  font-family: var(--sans);
+  font-weight: 500;
+}
+
+/* -------------------- recipe card -------------------- */
+
+.recipe-card {
+  background: #FBF6E9;
+  border: 1px solid var(--cream-dark);
+  box-shadow: 0 1px 0 var(--cream-dark), 0 6px 18px rgba(42, 36, 32, 0.08);
+  border-radius: 2px;
+  padding: 36px 36px 40px;
+}
+
+@media (max-width: 520px) {
+  .recipe-card { padding: 26px 20px 30px; }
+}
+
+.recipe-title {
+  font-family: var(--serif);
+  font-size: 2rem;
+  line-height: 1.15;
+  font-weight: 700;
+  margin: 0 0 10px;
+  color: var(--spruce);
+}
+
+.recipe-byline {
+  color: var(--maple);
+  font-size: 0.95rem;
+  margin: 0 0 18px;
+}
+
+.recipe-byline a { color: var(--maple); text-decoration: underline; }
+
+.field-notes {
+  font-size: 1.02rem;
+  margin: 0 0 26px;
+  color: var(--ink);
+}
+
+.rule {
+  border: none;
+  border-top: 2px solid var(--barn-red);
+  border-bottom: 1px solid var(--barn-red);
+  height: 3px;
+  margin: 28px 0;
+}
+
+.stat-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin: 0 0 26px;
+  padding: 14px 18px;
+  background: var(--cream);
+  border-left: 4px solid var(--mustard);
+}
+
+.stat {
+  font-size: 0.88rem;
+  color: var(--maple);
+}
+
+.stat strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+h2.section-head {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--barn-red);
+  margin: 0 0 16px;
+}
+
+.ingredients {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 0;
+}
+
+.ingredients li {
+  position: relative;
+  padding: 7px 0 7px 30px;
+  border-bottom: 1px dashed var(--cream-dark);
+}
+
+.ingredients li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 13px;
+  height: 13px;
+  border: 2px solid var(--mustard);
+  border-radius: 2px;
+}
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: step;
+}
+
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding: 4px 0 20px 46px;
+  min-height: 32px;
+}
+
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--spruce);
+  color: var(--spruce);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 0.95rem;
+  background: var(--cream);
+}
+
+.steps li strong { color: var(--spruce); }
+
+.notes-box {
+  margin-top: 30px;
+  padding: 16px 20px;
+  background: var(--cream);
+  border: 1px dashed var(--maple);
+  font-size: 0.94rem;
+  color: var(--maple);
+}
+
+.notes-box p { margin: 0 0 8px; }
+.notes-box p:last-child { margin-bottom: 0; }
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--maple);
+}
+
+.back-link:hover { color: var(--barn-red); }
+
+footer.site-footer {
+  text-align: center;
+  color: var(--maple);
+  font-size: 0.82rem;
+  padding: 20px;
+}
