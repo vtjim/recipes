@@ -20,16 +20,22 @@
   <h1 class="index-intro">All recipes</h1>
   <p class="index-sub">Sorted newest first. Click through for the full card.</p>
 
-  <ul class="recipe-list">
-    <li>
+  <div class="filter-bar">
+    <input type="search" id="recipe-search" placeholder="Search by title, source, cuisine&hellip;" aria-label="Search recipes">
+    <div class="tag-filters" id="tag-filters" aria-label="Filter by tag"></div>
+  </div>
+
+  <ul class="recipe-list" id="recipe-list">
+    <li data-tags="vegan weeknight dinner">
       <h3><a href="recipes/i-cant-believe-its-not-chicken-grated-tofu.html">I Can't Believe It's Not Chicken (Super-Savory Grated Tofu)</a></h3>
       <p class="meta">
         <span class="tag">Vegan</span>
         <span class="tag">Weeknight</span>
+        <span class="tag">Dinner</span>
         Nisha Vora, NYT Cooking · serves 4
       </p>
     </li>
-    <li>
+    <li data-tags="vegan breakfast">
       <h3><a href="recipes/sourdough-granola.html">Sourdough Granola</a></h3>
       <p class="meta">
         <span class="tag">Vegan</span>
@@ -37,7 +43,7 @@
         Molly Marzalek-Kelly, King Arthur Baking · from Melissa, Aug 2026
       </p>
     </li>
-    <li>
+    <li data-tags="vegan appetizer">
       <h3><a href="recipes/mock-eel.html">Mock Eel</a></h3>
       <p class="meta">
         <span class="tag">Vegan</span>
@@ -45,31 +51,34 @@
         SAVEUR / Olives for Dinner · from Melissa, Aug 2016
       </p>
     </li>
-    <li>
+    <li data-tags="seafood entree dinner">
       <h3><a href="recipes/salmon-cakes.html">Salmon Cakes</a></h3>
       <p class="meta">
         <span class="tag">Seafood</span>
         <span class="tag">Entree</span>
+        <span class="tag">Dinner</span>
         Ina Garten, Food Network · from Melissa, Jan 2016
       </p>
     </li>
-    <li>
+    <li data-tags="seafood weeknight dinner">
       <h3><a href="recipes/shrimp-lo-mein.html">Shrimp Lo Mein</a></h3>
       <p class="meta">
         <span class="tag">Seafood</span>
         <span class="tag">Weeknight</span>
+        <span class="tag">Dinner</span>
         Kelsey Nixon, Food Network · from Melissa, Apr 2015
       </p>
     </li>
-    <li>
+    <li data-tags="vegetarian pasta dinner">
       <h3><a href="recipes/bow-ties-with-broccoli-pesto.html">Bow Ties with Broccoli Pesto</a></h3>
       <p class="meta">
         <span class="tag">Vegetarian</span>
         <span class="tag">Pasta</span>
+        <span class="tag">Dinner</span>
         Vegetarian Times · from Melissa, Apr 2014
       </p>
     </li>
-    <li>
+    <li data-tags="vegetarian brunch">
       <h3><a href="recipes/greens-and-quinoa-pie.html">Greens and Quinoa Pie</a></h3>
       <p class="meta">
         <span class="tag">Vegetarian</span>
@@ -77,7 +86,7 @@
         Renee Cornett, Vegetarian Times · from Melissa, Apr 2014
       </p>
     </li>
-    <li>
+    <li data-tags="vegan appetizer">
       <h3><a href="recipes/kung-pao-sliders.html">Kung Pao Sliders</a></h3>
       <p class="meta">
         <span class="tag">Vegan</span>
@@ -85,39 +94,43 @@
         Mariano Gascon, Vegetarian Times · from Melissa, Jan 2014
       </p>
     </li>
-    <li>
+    <li data-tags="vegetarian comfort-food dinner">
       <h3><a href="recipes/kripalu-berkshire-pie.html">Kripalu Berkshire Pie</a></h3>
       <p class="meta">
         <span class="tag">Vegetarian</span>
         <span class="tag">Comfort Food</span>
+        <span class="tag">Dinner</span>
         Kripalu · from Melissa, Dec 2013
       </p>
     </li>
-    <li>
+    <li data-tags="seafood grilling dinner">
       <h3><a href="recipes/chile-glazed-halibut-with-avocado-tomatillo-sauce.html">Chile-Glazed Halibut with Avocado-Tomatillo Sauce</a></h3>
       <p class="meta">
         <span class="tag">Seafood</span>
         <span class="tag">Grilling</span>
+        <span class="tag">Dinner</span>
         Barbara Pool Fenzl, Epicurious · from Melissa, Apr 2012
       </p>
     </li>
-    <li>
+    <li data-tags="vegetarian weeknight dinner">
       <h3><a href="recipes/stir-fried-rice-noodles.html">Stir-Fried Rice Noodles</a></h3>
       <p class="meta">
         <span class="tag">Vegetarian</span>
         <span class="tag">Weeknight</span>
+        <span class="tag">Dinner</span>
         Vegetarian Times · from Melissa, Apr 2012
       </p>
     </li>
-    <li>
+    <li data-tags="vegetarian indian dinner">
       <h3><a href="recipes/indian-cheese-and-red-peppers-in-fragrant-spinach-sauce.html">Indian Cheese and Red Peppers in Fragrant Spinach Sauce</a></h3>
       <p class="meta">
         <span class="tag">Vegetarian</span>
         <span class="tag">Indian</span>
+        <span class="tag">Dinner</span>
         Julie Sahni, Epicurious · from Melissa, Jan 2012
       </p>
     </li>
-    <li>
+    <li data-tags="sauce mexican">
       <h3><a href="recipes/easy-enchilada-sauce.html">Easy Enchilada Sauce</a></h3>
       <p class="meta">
         <span class="tag">Sauce</span>
@@ -125,42 +138,94 @@
         Emeril Lagasse, Food Network · from Melissa, Oct 2011
       </p>
     </li>
-    <li>
+    <li data-tags="seafood weeknight dinner">
       <h3><a href="recipes/baked-parmesan-tilapia.html">Baked Parmesan Tilapia</a></h3>
       <p class="meta">
         <span class="tag">Seafood</span>
         <span class="tag">Weeknight</span>
+        <span class="tag">Dinner</span>
         Allrecipes · from Melissa, Mar 2013
       </p>
     </li>
-    <li>
+    <li data-tags="vegan weeknight dinner">
       <h3><a href="recipes/seitan-beef-and-broccoli.html">10-Minute Seitan &lsquo;Beef&rsquo; and Broccoli</a></h3>
       <p class="meta">
         <span class="tag">Vegan</span>
         <span class="tag">Weeknight</span>
+        <span class="tag">Dinner</span>
         Recipe card, dated 5/7/16 · scanned Sep 2026
       </p>
     </li>
-    <li>
+    <li data-tags="vegan weeknight dinner">
       <h3><a href="recipes/szechuan-tofu-and-green-bean-stir-fry.html">Szechuan Tofu &amp; Green Bean Stir-Fry</a></h3>
       <p class="meta">
         <span class="tag">Vegan</span>
         <span class="tag">Weeknight</span>
+        <span class="tag">Dinner</span>
         EatingWell Test Kitchen · recipe card, scanned Sep 2026
       </p>
     </li>
-    <li>
+    <li data-tags="vegan entree dinner">
       <h3><a href="recipes/general-tsos-tempeh.html">General Tso's Tempeh</a></h3>
       <p class="meta">
         <span class="tag">Vegan</span>
         <span class="tag">Entree</span>
+        <span class="tag">Dinner</span>
         Tasty · recipe card, scanned Sep 2026
       </p>
     </li>
   </ul>
+
+  <p id="no-results" hidden>No recipes match those filters.</p>
 </main>
 
 <footer class="site-footer">Cataloged by hand, one dinner at a time.</footer>
+
+<script>
+(function () {
+  var items = Array.prototype.slice.call(document.querySelectorAll('#recipe-list li'));
+  var tagSet = new Set();
+  items.forEach(function (li) {
+    (li.dataset.tags || '').split(/\s+/).filter(Boolean).forEach(function (t) { tagSet.add(t); });
+  });
+
+  var tagFilters = document.getElementById('tag-filters');
+  var activeTags = new Set();
+  var labels = { 'comfort-food': 'Comfort Food' };
+
+  Array.from(tagSet).sort().forEach(function (tag) {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'filter-chip';
+    btn.textContent = labels[tag] || (tag.charAt(0).toUpperCase() + tag.slice(1));
+    btn.addEventListener('click', function () {
+      if (activeTags.has(tag)) { activeTags.delete(tag); btn.classList.remove('active'); }
+      else { activeTags.add(tag); btn.classList.add('active'); }
+      applyFilters();
+    });
+    tagFilters.appendChild(btn);
+  });
+
+  var searchInput = document.getElementById('recipe-search');
+  searchInput.addEventListener('input', applyFilters);
+  var noResults = document.getElementById('no-results');
+
+  function applyFilters() {
+    var q = searchInput.value.trim().toLowerCase();
+    var visible = 0;
+    items.forEach(function (li) {
+      var itemTags = (li.dataset.tags || '').split(/\s+/);
+      var tagsMatch = Array.from(activeTags).every(function (t) { return itemTags.indexOf(t) !== -1; });
+      var text = li.textContent.toLowerCase();
+      var searchMatch = !q || text.indexOf(q) !== -1;
+      var show = tagsMatch && searchMatch;
+      li.hidden = !show;
+      if (show) visible++;
+    });
+    noResults.hidden = visible !== 0;
+  }
+})();
+</script>
 
 </body>
 </html>

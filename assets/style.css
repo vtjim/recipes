@@ -101,6 +101,58 @@ main {
   font-size: 1.02rem;
 }
 
+.filter-bar {
+  margin: 0 0 28px;
+}
+
+#recipe-search {
+  width: 100%;
+  font-family: var(--sans);
+  font-size: 1rem;
+  padding: 10px 14px;
+  border: 1px solid var(--mustard);
+  border-radius: 3px;
+  background: #FBF6E9;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+
+#recipe-search:focus-visible {
+  outline: 3px solid var(--mustard);
+  outline-offset: 1px;
+}
+
+.tag-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-chip {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--spruce);
+  background: transparent;
+  color: var(--spruce);
+  cursor: pointer;
+}
+
+.filter-chip:hover { background: var(--cream-dark); }
+
+.filter-chip.active {
+  background: var(--spruce);
+  color: var(--cream);
+}
+
+#no-results {
+  color: var(--maple);
+  font-style: italic;
+  padding: 24px 0;
+}
+
 .recipe-list {
   list-style: none;
   margin: 0;
@@ -171,6 +223,36 @@ main {
 }
 
 .recipe-byline a { color: var(--maple); text-decoration: underline; }
+
+.recipe-photos {
+  display: flex;
+  gap: 12px;
+  margin: 0 0 26px;
+  flex-wrap: wrap;
+}
+
+.recipe-photos figure {
+  flex: 1 1 200px;
+  min-width: 160px;
+  margin: 0;
+}
+
+.recipe-photos img {
+  width: 100%;
+  max-height: 340px;
+  object-fit: cover;
+  display: block;
+  border-radius: 3px;
+  border: 1px solid var(--cream-dark);
+  box-shadow: 0 4px 10px rgba(42, 36, 32, 0.12);
+}
+
+.recipe-photos figcaption {
+  font-size: 0.78rem;
+  color: var(--maple);
+  margin-top: 4px;
+  font-style: italic;
+}
 
 .field-notes {
   font-size: 1.02rem;
