@@ -20,6 +20,12 @@ recipe-site/
 3. If Pages isn't enabled yet on the repo: enable it in Settings → Pages, source = the branch/folder used above.
 4. Fonts (Fraunces + Karla) load from Google Fonts via the `@import` in `style.css` — no local font files needed, works fine once live.
 
+## Recipe intake
+
+Recipes arrive two ways, both producing the same outcome (page + index entry + notification email to jim.silvia@gmail.com and mjlevy718@gmail.com + commit/push):
+- **Email**: scanned/photographed recipe cards sent to jim.silvia@gmail.com from Jim or Melissa, picked up by the automated mail-check pipeline (daily cloud routine + local high-frequency loop during active scanning sessions). Tracked via `.mail-check-state.json`.
+- **Direct upload in a Claude Code chat**: a photo pasted straight into the conversation. Process it immediately and identically to an emailed scan — build the themed page, add the index entry, save the source image under `scans/`, send the notification email, commit, and push. Don't wait for the mail pipeline to pick it up; it never will, since it didn't arrive by email.
+
 ## Adding future recipes (pattern to repeat)
 
 1. Copy `recipes/i-cant-believe-its-not-chicken-grated-tofu.html` as a template for the new recipe.
