@@ -39,7 +39,7 @@ The household is vegetarian (no meat) — seafood is fine, but never add or sugg
    - Add it to the page with `<div class="recipe-photos"><figure><img src="../scans-or-images/<slug>.jpg" alt="..."><figcaption>...</figcaption></figure></div>`, placed right after `.recipe-byline` and before `.field-notes`.
    - If no photo is available, skip it — never fabricate or stock-photo a placeholder.
 4. **Preserve handwritten notes.** If a scanned card has margin notes, ratings, or dates written on it, transcribe them into the `.notes-box` rather than discarding them — that's real provenance worth keeping.
-5. Add a new `<li data-tags="...">` entry to `index.html`'s `.recipe-list`, matching the existing pattern (title link, tags, byline meta). The `data-tags` attribute (lowercase, hyphenated, space-separated) drives the search/filter bar on the index — reuse existing tag values where they fit (see the `<script>` block in `index.html` for how filtering works) rather than inventing near-duplicates.
+5. Add a new `<li data-tags="..." data-added="...">` entry to `index.html`'s `.recipe-list`, matching the existing pattern (title link, tags, byline meta). The `data-tags` attribute (lowercase, hyphenated, space-separated) drives the search/filter bar on the index — reuse existing tag values where they fit (see the `<script>` block in `index.html` for how filtering works) rather than inventing near-duplicates. `data-added` is an ISO 8601 timestamp (use the current time) and drives the "Newest first" / "Oldest first" sort options — always set it on new entries.
 6. Keep `assets/style.css` as the single shared stylesheet — don't fork per-recipe styles.
 
 ## Design notes (for consistency if extending)

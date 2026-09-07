@@ -122,6 +122,30 @@ main {
   outline-offset: 1px;
 }
 
+.sort-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+  font-size: 0.88rem;
+  color: var(--maple);
+}
+
+.sort-row select {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  padding: 5px 10px;
+  border: 1px solid var(--mustard);
+  border-radius: 3px;
+  background: #FBF6E9;
+  color: var(--ink);
+}
+
+.sort-row select:focus-visible {
+  outline: 3px solid var(--mustard);
+  outline-offset: 1px;
+}
+
 .tag-filters {
   display: flex;
   flex-wrap: wrap;

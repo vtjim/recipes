@@ -18,15 +18,24 @@
 
 <main>
   <h1 class="index-intro">All recipes</h1>
-  <p class="index-sub">Sorted newest first. Click through for the full card.</p>
+  <p class="index-sub">Click through for the full card.</p>
 
   <div class="filter-bar">
     <input type="search" id="recipe-search" placeholder="Search by title, source, cuisine&hellip;" aria-label="Search recipes">
+    <div class="sort-row">
+      <label for="sort-select">Sort:</label>
+      <select id="sort-select">
+        <option value="newest">Newest first</option>
+        <option value="oldest">Oldest first</option>
+        <option value="az">A&ndash;Z</option>
+        <option value="random">Surprise me</option>
+      </select>
+    </div>
     <div class="tag-filters" id="tag-filters" aria-label="Filter by tag"></div>
   </div>
 
   <ul class="recipe-list" id="recipe-list">
-    <li data-tags="vegan weeknight dinner">
+    <li data-tags="vegan weeknight dinner" data-added="2026-09-05T07:33:14-04:00">
       <h3><a href="recipes/i-cant-believe-its-not-chicken-grated-tofu.html">I Can't Believe It's Not Chicken (Super-Savory Grated Tofu)</a></h3>
       <p class="meta">
         <span class="tag">Vegan</span>
@@ -35,7 +44,7 @@
         Nisha Vora, NYT Cooking · serves 4
       </p>
     </li>
-    <li data-tags="vegan breakfast">
+    <li data-tags="vegan breakfast" data-added="2026-09-05T07:59:26-04:00">
       <h3><a href="recipes/sourdough-granola.html">Sourdough Granola</a></h3>
       <p class="meta">
         <span class="tag">Vegan</span>
@@ -43,7 +52,7 @@
         Molly Marzalek-Kelly, King Arthur Baking · from Melissa, Aug 2026
       </p>
     </li>
-    <li data-tags="vegan appetizer">
+    <li data-tags="vegan appetizer" data-added="2026-09-05T07:59:26-04:00">
       <h3><a href="recipes/mock-eel.html">Mock Eel</a></h3>
       <p class="meta">
         <span class="tag">Vegan</span>
@@ -51,7 +60,7 @@
         SAVEUR / Olives for Dinner · from Melissa, Aug 2016
       </p>
     </li>
-    <li data-tags="seafood entree dinner">
+    <li data-tags="seafood entree dinner" data-added="2026-09-05T07:59:26-04:00">
       <h3><a href="recipes/salmon-cakes.html">Salmon Cakes</a></h3>
       <p class="meta">
         <span class="tag">Seafood</span>
@@ -60,7 +69,7 @@
         Ina Garten, Food Network · from Melissa, Jan 2016
       </p>
     </li>
-    <li data-tags="seafood weeknight dinner">
+    <li data-tags="seafood weeknight dinner" data-added="2026-09-05T07:59:26-04:00">
       <h3><a href="recipes/shrimp-lo-mein.html">Shrimp Lo Mein</a></h3>
       <p class="meta">
         <span class="tag">Seafood</span>
@@ -69,7 +78,7 @@
         Kelsey Nixon, Food Network · from Melissa, Apr 2015
       </p>
     </li>
-    <li data-tags="vegetarian pasta dinner">
+    <li data-tags="vegetarian pasta dinner" data-added="2026-09-05T07:59:26-04:00">
       <h3><a href="recipes/bow-ties-with-broccoli-pesto.html">Bow Ties with Broccoli Pesto</a></h3>
       <p class="meta">
         <span class="tag">Vegetarian</span>
@@ -78,7 +87,7 @@
         Vegetarian Times · from Melissa, Apr 2014
       </p>
     </li>
-    <li data-tags="vegetarian brunch">
+    <li data-tags="vegetarian brunch" data-added="2026-09-05T07:59:26-04:00">
       <h3><a href="recipes/greens-and-quinoa-pie.html">Greens and Quinoa Pie</a></h3>
       <p class="meta">
         <span class="tag">Vegetarian</span>
@@ -86,7 +95,7 @@
         Renee Cornett, Vegetarian Times · from Melissa, Apr 2014
       </p>
     </li>
-    <li data-tags="vegan appetizer">
+    <li data-tags="vegan appetizer" data-added="2026-09-05T07:59:26-04:00">
       <h3><a href="recipes/kung-pao-sliders.html">Kung Pao Sliders</a></h3>
       <p class="meta">
         <span class="tag">Vegan</span>
@@ -94,7 +103,7 @@
         Mariano Gascon, Vegetarian Times · from Melissa, Jan 2014
       </p>
     </li>
-    <li data-tags="vegetarian comfort-food dinner">
+    <li data-tags="vegetarian comfort-food dinner" data-added="2026-09-05T07:59:26-04:00">
       <h3><a href="recipes/kripalu-berkshire-pie.html">Kripalu Berkshire Pie</a></h3>
       <p class="meta">
         <span class="tag">Vegetarian</span>
@@ -103,7 +112,7 @@
         Kripalu · from Melissa, Dec 2013
       </p>
     </li>
-    <li data-tags="seafood grilling dinner">
+    <li data-tags="seafood grilling dinner" data-added="2026-09-05T07:59:26-04:00">
       <h3><a href="recipes/chile-glazed-halibut-with-avocado-tomatillo-sauce.html">Chile-Glazed Halibut with Avocado-Tomatillo Sauce</a></h3>
       <p class="meta">
         <span class="tag">Seafood</span>
@@ -112,7 +121,7 @@
         Barbara Pool Fenzl, Epicurious · from Melissa, Apr 2012
       </p>
     </li>
-    <li data-tags="vegetarian weeknight dinner">
+    <li data-tags="vegetarian weeknight dinner" data-added="2026-09-05T07:59:26-04:00">
       <h3><a href="recipes/stir-fried-rice-noodles.html">Stir-Fried Rice Noodles</a></h3>
       <p class="meta">
         <span class="tag">Vegetarian</span>
@@ -121,7 +130,7 @@
         Vegetarian Times · from Melissa, Apr 2012
       </p>
     </li>
-    <li data-tags="vegetarian indian dinner">
+    <li data-tags="vegetarian indian dinner" data-added="2026-09-05T07:59:26-04:00">
       <h3><a href="recipes/indian-cheese-and-red-peppers-in-fragrant-spinach-sauce.html">Indian Cheese and Red Peppers in Fragrant Spinach Sauce</a></h3>
       <p class="meta">
         <span class="tag">Vegetarian</span>
@@ -130,7 +139,7 @@
         Julie Sahni, Epicurious · from Melissa, Jan 2012
       </p>
     </li>
-    <li data-tags="sauce mexican">
+    <li data-tags="sauce mexican" data-added="2026-09-05T07:59:26-04:00">
       <h3><a href="recipes/easy-enchilada-sauce.html">Easy Enchilada Sauce</a></h3>
       <p class="meta">
         <span class="tag">Sauce</span>
@@ -138,7 +147,7 @@
         Emeril Lagasse, Food Network · from Melissa, Oct 2011
       </p>
     </li>
-    <li data-tags="seafood weeknight dinner">
+    <li data-tags="seafood weeknight dinner" data-added="2026-09-05T07:59:26-04:00">
       <h3><a href="recipes/baked-parmesan-tilapia.html">Baked Parmesan Tilapia</a></h3>
       <p class="meta">
         <span class="tag">Seafood</span>
@@ -147,7 +156,7 @@
         Allrecipes · from Melissa, Mar 2013
       </p>
     </li>
-    <li data-tags="vegan weeknight dinner">
+    <li data-tags="vegan weeknight dinner" data-added="2026-09-07T16:30:59-04:00">
       <h3><a href="recipes/seitan-beef-and-broccoli.html">10-Minute Seitan &lsquo;Beef&rsquo; and Broccoli</a></h3>
       <p class="meta">
         <span class="tag">Vegan</span>
@@ -156,7 +165,7 @@
         Recipe card, dated 5/7/16 · scanned Sep 2026
       </p>
     </li>
-    <li data-tags="vegan weeknight dinner">
+    <li data-tags="vegan weeknight dinner" data-added="2026-09-07T16:34:15-04:00">
       <h3><a href="recipes/szechuan-tofu-and-green-bean-stir-fry.html">Szechuan Tofu &amp; Green Bean Stir-Fry</a></h3>
       <p class="meta">
         <span class="tag">Vegan</span>
@@ -165,7 +174,7 @@
         EatingWell Test Kitchen · recipe card, scanned Sep 2026
       </p>
     </li>
-    <li data-tags="vegan entree dinner">
+    <li data-tags="vegan entree dinner" data-added="2026-09-07T16:34:16-04:00">
       <h3><a href="recipes/general-tsos-tempeh.html">General Tso's Tempeh</a></h3>
       <p class="meta">
         <span class="tag">Vegan</span>
@@ -174,7 +183,7 @@
         Tasty · recipe card, scanned Sep 2026
       </p>
     </li>
-    <li data-tags="vegan appetizer">
+    <li data-tags="vegan appetizer" data-added="2026-09-07T16:40:02-04:00">
       <h3><a href="recipes/buffalo-cauliflower-wings.html">Buffalo Cauliflower Wings</a></h3>
       <p class="meta">
         <span class="tag">Vegan</span>
@@ -191,6 +200,7 @@
 
 <script>
 (function () {
+  var list = document.getElementById('recipe-list');
   var items = Array.prototype.slice.call(document.querySelectorAll('#recipe-list li'));
   var tagSet = new Set();
   items.forEach(function (li) {
@@ -231,6 +241,29 @@
       if (show) visible++;
     });
     noResults.hidden = visible !== 0;
+  }
+
+  var sortSelect = document.getElementById('sort-select');
+  sortSelect.addEventListener('change', function () { applySort(sortSelect.value); });
+  applySort('newest');
+
+  function applySort(mode) {
+    var ordered = items.slice();
+    if (mode === 'newest') {
+      ordered.sort(function (a, b) { return new Date(b.dataset.added) - new Date(a.dataset.added); });
+    } else if (mode === 'oldest') {
+      ordered.sort(function (a, b) { return new Date(a.dataset.added) - new Date(b.dataset.added); });
+    } else if (mode === 'az') {
+      ordered.sort(function (a, b) {
+        return a.querySelector('h3').textContent.localeCompare(b.querySelector('h3').textContent);
+      });
+    } else if (mode === 'random') {
+      for (var i = ordered.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = ordered[i]; ordered[i] = ordered[j]; ordered[j] = tmp;
+      }
+    }
+    ordered.forEach(function (li) { list.appendChild(li); });
   }
 })();
 </script>
