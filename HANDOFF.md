@@ -41,6 +41,16 @@ The household is vegetarian (no meat) — seafood is fine, but never add or sugg
 4. **Preserve handwritten notes.** If a scanned card has margin notes, ratings, or dates written on it, transcribe them into the `.notes-box` rather than discarding them — that's real provenance worth keeping.
 5. Add a new `<li data-tags="..." data-added="...">` entry to `index.html`'s `.recipe-list`, matching the existing pattern (title link, tags, byline meta). The `data-tags` attribute (lowercase, hyphenated, space-separated) drives the search/filter bar on the index — reuse existing tag values where they fit (see the `<script>` block in `index.html` for how filtering works) rather than inventing near-duplicates. `data-added` is an ISO 8601 timestamp (use the current time) and drives the "Newest first" / "Oldest first" sort options — always set it on new entries.
 6. Keep `assets/style.css` as the single shared stylesheet — don't fork per-recipe styles.
+7. Every recipe page includes a `.timer-widget` (a plain stopwatch, shared logic in `assets/site.js`, no per-page JS needed) right after `.stat-row`, and a `.cook-log` section at the end of the article (before `</article>`) with a "Log this cook" `mailto:` button. Copy these two blocks verbatim from an existing page — see `recipes/general-tsos-tempeh.html` for a clean example — and just swap the mailto subject to `Cook log: <exact recipe title>` (URL-encoded). Include `<script src="../assets/site.js"></script>` before `</body>`.
+
+## Cook log intake
+
+The "Log this cook" button on every recipe page opens a pre-addressed email (`jim.silvia@gmail.com`, subject `Cook log: <recipe title>`) — this is the only way entries get added, there's no form or database since the site is static. The mail-check pipeline (daily cloud routine + local high-frequency loop) handles these on every pass, same as recipe-intake emails:
+
+1. Search for messages TO jim.silvia@gmail.com FROM jim.silvia@gmail.com, mjlevy718@gmail.com, or ymlevy@yellowwood.org whose subject starts with `Cook log:` (case-insensitive), received after `last_checked` and not in `processed_message_ids`.
+2. Match the text after the colon to the closest recipe title. If nothing matches closely enough, skip it and note why — don't guess wildly.
+3. Append a new `<div class="cook-log-entry">` inside that recipe's `.cook-log-entries` (replace the `.cook-log-empty` placeholder if this is the first entry): a `.who-when` line (sender's first name + date), the email body as the comment, and an `<img>` if a photo was attached (save it under `scans/cook-logs/<slug>-<date>.jpg`, compressed the same way as recipe scans).
+4. Commit and push. No notification email needed for cook-log entries — that would get noisy fast; the log itself is the record. Mark the message processed either way.
 
 ## Design notes (for consistency if extending)
 

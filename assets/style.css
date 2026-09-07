@@ -381,6 +381,104 @@ h2.section-head {
 
 .steps li strong { color: var(--spruce); }
 
+.timer-widget {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 26px;
+  padding: 14px 18px;
+  background: var(--cream);
+  border-left: 4px solid var(--barn-red);
+  flex-wrap: wrap;
+}
+
+.timer-display {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--ink);
+  min-width: 78px;
+}
+
+.timer-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.timer-btn {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 7px 14px;
+  border-radius: 3px;
+  border: 1px solid var(--spruce);
+  background: transparent;
+  color: var(--spruce);
+  cursor: pointer;
+}
+
+.timer-btn:hover:not(:disabled) { background: var(--cream-dark); }
+
+.timer-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.cook-log {
+  margin-top: 34px;
+  padding-top: 26px;
+  border-top: 2px solid var(--barn-red);
+}
+
+.cook-log-entries {
+  margin: 0 0 18px;
+}
+
+.cook-log-entry {
+  padding: 14px 0;
+  border-bottom: 1px dashed var(--cream-dark);
+}
+
+.cook-log-entry:last-child { border-bottom: none; }
+
+.cook-log-entry .who-when {
+  font-size: 0.85rem;
+  color: var(--maple);
+  margin: 0 0 6px;
+  font-weight: 500;
+}
+
+.cook-log-entry p { margin: 0 0 8px; }
+
+.cook-log-entry img {
+  max-width: 240px;
+  display: block;
+  border-radius: 3px;
+  border: 1px solid var(--cream-dark);
+  box-shadow: 0 4px 10px rgba(42, 36, 32, 0.12);
+  margin-top: 6px;
+}
+
+.cook-log-empty {
+  color: var(--maple);
+  font-style: italic;
+  margin: 0 0 18px;
+}
+
+.log-cook-btn {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 3px;
+  background: var(--barn-red);
+  color: var(--cream);
+  text-decoration: none;
+}
+
+.log-cook-btn:hover { background: var(--maple); color: var(--cream); }
+
 .notes-box {
   margin-top: 30px;
   padding: 16px 20px;

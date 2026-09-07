@@ -35,6 +35,15 @@
       <div class="stat"><strong>~30 min</strong>active time</div>
     </div>
 
+    <div class="timer-widget">
+      <div class="timer-display" id="timer-display">00:00</div>
+      <div class="timer-controls">
+        <button type="button" class="timer-btn" id="timer-start">Start</button>
+        <button type="button" class="timer-btn" id="timer-pause" disabled>Pause</button>
+        <button type="button" class="timer-btn" id="timer-reset">Reset</button>
+      </div>
+    </div>
+
     <hr class="rule">
 
     <h2 class="section-head">Ingredients</h2>
@@ -70,10 +79,20 @@
       <p><strong>Chipotle chiles</strong> are dried, smoked jalape&ntilde;os canned in adobo sauce, found at supermarkets, specialty stores, or Latin markets.</p>
       <p><strong>Tomatillos</strong> are green, tomato-like fruits with a papery husk, sold in the produce section or at Latin markets.</p>
     </div>
+
+    <div class="cook-log">
+      <h2 class="section-head">Cook Log</h2>
+      <div class="cook-log-entries">
+        <p class="cook-log-empty">No entries yet &mdash; be the first to log a cook.</p>
+      </div>
+      <a class="log-cook-btn" href="mailto:jim.silvia@gmail.com?subject=Cook%20log%3A%20Chile-Glazed%20Halibut%20with%20Avocado-Tomatillo%20Sauce&body=How%20did%20it%20go%3F%20Any%20tweaks%20you%20made%3F%20Attach%20a%20photo%20if%20you%20have%20one.">Log this cook</a>
+    </div>
+
   </article>
 </main>
 
 <footer class="site-footer">Cataloged by hand, one dinner at a time.</footer>
+<script src="../assets/site.js"></script>
 
 </body>
 </html>

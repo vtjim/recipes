@@ -34,6 +34,15 @@
       <div class="stat"><strong>Pasta</strong>course</div>
     </div>
 
+    <div class="timer-widget">
+      <div class="timer-display" id="timer-display">00:00</div>
+      <div class="timer-controls">
+        <button type="button" class="timer-btn" id="timer-start">Start</button>
+        <button type="button" class="timer-btn" id="timer-pause" disabled>Pause</button>
+        <button type="button" class="timer-btn" id="timer-reset">Reset</button>
+      </div>
+    </div>
+
     <hr class="rule">
 
     <h2 class="section-head">Ingredients</h2>
@@ -59,10 +68,19 @@
       <li><strong>Make the pesto.</strong> In a food processor, pulse the hazelnuts, broccoli, parsley, olive oil, mint, lemon juice, lemon zest, capers, and garlic until it forms a coarse pesto. Season with salt and pepper.</li>
       <li><strong>Toss and serve.</strong> Toss the pesto with the hot pasta, loosening with reserved pasta water if needed. Drizzle with the remaining olive oil.</li>
     </ol>
+    <div class="cook-log">
+      <h2 class="section-head">Cook Log</h2>
+      <div class="cook-log-entries">
+        <p class="cook-log-empty">No entries yet &mdash; be the first to log a cook.</p>
+      </div>
+      <a class="log-cook-btn" href="mailto:jim.silvia@gmail.com?subject=Cook%20log%3A%20Bow%20Ties%20with%20Broccoli%20Pesto&body=How%20did%20it%20go%3F%20Any%20tweaks%20you%20made%3F%20Attach%20a%20photo%20if%20you%20have%20one.">Log this cook</a>
+    </div>
+
   </article>
 </main>
 
 <footer class="site-footer">Cataloged by hand, one dinner at a time.</footer>
+<script src="../assets/site.js"></script>
 
 </body>
 </html>
