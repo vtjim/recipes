@@ -1,0 +1,19 @@
+# Local high-frequency mail-check loop — prompt template
+
+This is the prompt used to self-schedule a 15-minute local check during an active scanning session (e.g. "check for new recipe emails every 15 minutes while I scan"), via a live Claude Code session's `ScheduleWakeup` tool. It's a session-local supplement to the daily cloud routine (`recipe-mail-check-prompt.md`) — it only runs while a terminal session stays open, and stops itself after a stated cutoff time or on request. Nothing to configure ahead of time; just ask a session to set this up when you're about to scan a stack of cards.
+
+Fill in the current date and cutoff time (e.g. "today (2026-09-07)" and "10:00 PM America/New_York") when starting a new session.
+
+---
+
+Run the recipe-mail-check pipeline locally: cd to /Users/jim/dev/recipes/recipe-site (git repo, remote origin = vtjim/recipes, already has Gmail tools loaded this session). git pull first. Read .mail-check-state.json for last_checked/processed_message_ids/paused/favorites.
+
+STEP 1 (control-command replies): search Gmail for messages TO jim.silvia@gmail.com FROM jim.silvia@gmail.com, mjlevy718@gmail.com, or ymlevy@yellowwood.org received after last_checked and not in processed_message_ids; if the first line of the body matches exactly (case-insensitive, trimmed) "favorite <recipe name>", "remove <recipe name>", "pause", "resume", or "status", act on it (favorite = add a favorite tag to that recipe's index.html entry; remove = delete its page + index entry; pause/resume = toggle paused in state file; status = reply via Gmail with a short summary of live recipe count, favorites, paused state, last_checked) — anything else just mark processed and ignore.
+
+STEP 2 (cook log entries): among the same senders, find messages whose subject starts with "Cook log:" (case-insensitive), not already processed; match the text after the colon to the closest recipe title, append a <div class="cook-log-entry"> (who/when + comment, plus photo if attached, saved under recipe-site/scans/cook-logs/) into that recipe's .cook-log-entries (removing the .cook-log-empty placeholder on first entry) — no notification email needed for these, just commit+push and mark processed.
+
+STEP 3 (skip if paused=true): search the same senders for new messages with image/PDF attachments (scanned recipe cards, not cook-log emails), including any that complete previously-incomplete scans, received after last_checked and not in processed_message_ids; for each, download and read the attachment, build a themed recipe page following recipe-site/HANDOFF.md (image convention, handwritten-note preservation, data-tags/data-added, stopwatch + cook-log sections) and the exact template structure of recipe-site/recipes/i-cant-believe-its-not-chicken-grated-tofu.html, add a matching <li data-tags="..." data-added="..."> to index.html, and immediately send a short email via Gmail to both jim.silvia@gmail.com and mjlevy718@gmail.com announcing the new recipe with a link to https://vtjim.github.io/recipes/recipes/<slug>.html. Skip unreadable/non-recipe/still-incomplete images and note why, never fabricate content.
+
+STEP 4: commit any changes with a message ending in the Co-Authored-By/Claude-Session trailer lines established for the session, push to origin main, update and commit/push .mail-check-state.json (new last_checked = now UTC, updated processed_message_ids/favorites/paused). If nothing new was found, just update last_checked and skip the commit/push of content (still fine to commit just the state file, or skip entirely if state is unchanged — no need to push empty no-op commits every 15 minutes).
+
+Report briefly only when something actually happened (new recipe added, command executed, cook log entry added) — a quiet "nothing new" tick needs no narration. Stop looping once local time passes the stated cutoff — check with `date` each iteration and if past cutoff, do nothing further and just let the job expire/be deleted.

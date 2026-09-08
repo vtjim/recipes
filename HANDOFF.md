@@ -24,7 +24,9 @@ Two scheduled cloud agents run this independently of any local session — see t
 
 To change either routine's behavior (e.g. adjust the schedule, tweak the prompt, swap the model), use `RemoteTrigger` with `action: "update"` and that trigger id, or ask a session to do it via the `/schedule` skill. To debug a run that misbehaved: `RemoteTrigger` → `action: "list_runs"` with the trigger id, then `action: "get_run_log"` on the run in question.
 
-**Local high-frequency mode**: during an active scanning session (e.g. digitizing a stack of cards), a live Claude Code session can self-schedule a tighter loop (every 15 min, cheaper than the cloud's 1-hour cron minimum) using the same logic as the daily routine, via `ScheduleWakeup`. This only runs while a terminal session is open and stops on its own after 10pm or when told to stop — it's a supplement to the daily routine, not a replacement. Just ask a session to "check for new recipe emails every 15 minutes while I scan" and it'll set this up.
+**The actual prompt text for both routines is version-controlled**, not just referenced by ID — see `automation/recipe-mail-check-prompt.md` and `automation/weekly-digest-prompt.md`. If a routine is ever deleted or its prompt gets mangled by an edit, these files are the recovery copy; recreate it with `RemoteTrigger action: "create"` using the file's content as the prompt.
+
+**Local high-frequency mode**: during an active scanning session (e.g. digitizing a stack of cards), a live Claude Code session can self-schedule a tighter loop (every 15 min, cheaper than the cloud's 1-hour cron minimum) using the same logic as the daily routine, via `ScheduleWakeup`. This only runs while a terminal session is open and stops on its own after 10pm or when told to stop — it's a supplement to the daily routine, not a replacement. Just ask a session to "check for new recipe emails every 15 minutes while I scan" and it'll set this up. Prompt template: `automation/local-high-frequency-loop-prompt.md`.
 
 ## State file: `.mail-check-state.json`
 
