@@ -1,6 +1,66 @@
 # Handoff: Recipe Box site → GitHub Pages
 
-Static site, no build step. Vermont-farmhouse theme (parchment, barn red, spruce green).
+Static site, no build step. Vermont-farmhouse theme (parchment, barn red, spruce green). As of 2026-09-08 the site has 26 recipes and is fully automated: recipes and cook-log entries arrive by email, get parsed and published without a human in the loop, and everyone gets notified.
+
+## System overview
+
+| Piece | Where |
+|---|---|
+| Source repo | https://github.com/vtjim/recipes (public, owned by GitHub user `vtjim`) |
+| Live site | https://vtjim.github.io/recipes/ |
+| Pages config | Settings → Pages, source = `main` branch, root (`/`) — already enabled, no build step |
+| Local working copy | `/Users/jim/dev/recipes/recipe-site` (this folder is the repo root, `git remote -v` → `origin` = the URL above) |
+| Owner accounts watched | jim.silvia@gmail.com (primary), mjlevy718@gmail.com and ymlevy@yellowwood.org (Melissa) |
+
+Everything below this point — the two cloud routines, the state file, the reply commands — is already live. If you're picking this up in a new session, read this file plus `.mail-check-state.json`, then you have full context; nothing else to set up.
+
+## Automation (cloud routines)
+
+Two scheduled cloud agents run this independently of any local session — see them at https://claude.ai/code/routines or manage via the `/schedule` skill.
+
+**Recipe Mail Check (daily)** — id `trig_013Szw4k5ZoVweDvBbegdGyQ`, cron `0 12 * * *` (8am ET). Each run: pulls the repo, checks for reply-commands and `Cook log:` emails, checks for new scanned/attached recipes, builds pages, commits, pushes, and verifies the Pages build. Full prompt is in the routine itself (RemoteTrigger → get on that id, or the claude.ai routines page) — it's long and self-contained by design, since each run starts with zero context.
+
+**Recipe Box Weekly Digest** — id `trig_013CKdTh9d95Pe3AA3GGPDsE`, cron `0 13 * * 0` (Sunday 9am ET). Reads `git log` for the past 7 days, emails a "what's new" summary plus the reply-command cheat sheet to both owner accounts. Read-only — never pushes.
+
+To change either routine's behavior (e.g. adjust the schedule, tweak the prompt, swap the model), use `RemoteTrigger` with `action: "update"` and that trigger id, or ask a session to do it via the `/schedule` skill. To debug a run that misbehaved: `RemoteTrigger` → `action: "list_runs"` with the trigger id, then `action: "get_run_log"` on the run in question.
+
+**Local high-frequency mode**: during an active scanning session (e.g. digitizing a stack of cards), a live Claude Code session can self-schedule a tighter loop (every 15 min, cheaper than the cloud's 1-hour cron minimum) using the same logic as the daily routine, via `ScheduleWakeup`. This only runs while a terminal session is open and stops on its own after 10pm or when told to stop — it's a supplement to the daily routine, not a replacement. Just ask a session to "check for new recipe emails every 15 minutes while I scan" and it'll set this up.
+
+## State file: `.mail-check-state.json`
+
+The single source of truth both the cloud routine and any local session read/write — always `git pull` before reading it, since another run may have updated it since you last looked.
+
+```json
+{
+  "last_checked": "2026-09-08T00:50:29Z",   // ISO 8601 UTC — only look for mail newer than this
+  "processed_message_ids": ["..."],          // Gmail message IDs already handled, don't reprocess
+  "paused": false,                           // true = STEP "new scanned recipes" is skipped entirely
+  "favorites": []                            // currently unused by the pipeline logic itself; the
+}                                             // "favorite" reply-command tags the recipe's index.html
+                                              // entry directly rather than tracking state here
+```
+
+## Managing the site by email (reply commands)
+
+Reply to any Recipe Box email (or send a new one) from jim.silvia@gmail.com, mjlevy718@gmail.com, or ymlevy@yellowwood.org, with one of these as the **first line** of the body:
+
+| Command | Effect |
+|---|---|
+| `favorite <recipe name>` | Adds a `favorite` tag to that recipe's index entry (fuzzy title match) |
+| `remove <recipe name>` | Deletes that recipe's page, index entry, and scan/image |
+| `pause` | Stops new-recipe intake (cook logs and commands still work) |
+| `resume` | Turns intake back on |
+| `status` | Replies by email with live recipe count, favorites, paused state, last-checked time |
+
+Anything that doesn't match one of these exactly is just marked read and ignored — the pipeline never tries to interpret free-form intent, by design (see the `/schedule`-skill session that built this for the reasoning: a small fixed vocabulary was chosen over open natural-language commands specifically to avoid misreads on a public site).
+
+## Known outstanding items (as of 2026-09-08)
+
+Two scans came in incomplete and are intentionally **not** published — no content was fabricated to fill the gaps:
+- **Trio of Asian Dipping Sauces** — ingredients came through, but no Directions section. Source images saved at `scans/trio-of-asian-dipping-sauces.jpg`.
+- **Rigatoni with Roman Broccoli Sauce** — cuts off mid-recipe (missing the pasta amount and the rest of the method). Source image at `scans/rigatoni-with-roman-broccoli-sauce.jpg`.
+
+A follow-up photo of either (sent the normal way — email or dropped in a chat) will get matched to the same dish and finish the page. The routine prompts already know to look for this.
 
 ## Files in this folder
 
