@@ -7,9 +7,9 @@ Static site, no build step. Vermont-farmhouse theme (parchment, barn red, spruce
 | Piece | Where |
 |---|---|
 | Source repo | https://github.com/vtjim/recipes (public, owned by GitHub user `vtjim`) |
-| Live site | https://vtjim.github.io/recipes/ |
+| Live site | https://vtjim.github.io/recipes/ — and https://woodshed.silvia.net/recipes/, which copies this repo in on every Woodshed deploy (and twice a day), so this repo stays the source |
 | Pages config | Settings → Pages, source = `main` branch, root (`/`) — already enabled, no build step |
-| Local working copy | `/Users/jim/dev/recipes/recipe-site` (this folder is the repo root, `git remote -v` → `origin` = the URL above) |
+| Local working copy | `/Users/jim/dev/woodshed-sites/recipes` (this folder is the repo root, `git remote -v` → `origin` = the URL above) |
 | Owner accounts watched | jim.silvia@gmail.com (primary), mjlevy718@gmail.com and ymlevy@yellowwood.org (Melissa) |
 
 Everything below this point — the two cloud routines, the state file, the reply commands — is already live. If you're picking this up in a new session, read this file plus `.mail-check-state.json`, then you have full context; nothing else to set up.

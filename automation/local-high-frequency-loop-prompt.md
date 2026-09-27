@@ -6,7 +6,7 @@ Fill in the current date and cutoff time (e.g. "today (2026-09-07)" and "10:00 P
 
 ---
 
-Run the recipe-mail-check pipeline locally: cd to /Users/jim/dev/recipes/recipe-site (git repo, remote origin = vtjim/recipes, already has Gmail tools loaded this session). git pull first. Read .mail-check-state.json for last_checked/processed_message_ids/paused/favorites.
+Run the recipe-mail-check pipeline locally: cd to /Users/jim/dev/woodshed-sites/recipes (git repo, remote origin = vtjim/recipes, already has Gmail tools loaded this session). git pull first. Read .mail-check-state.json for last_checked/processed_message_ids/paused/favorites.
 
 STEP 1 (control-command replies): search Gmail for messages TO jim.silvia@gmail.com FROM jim.silvia@gmail.com, mjlevy718@gmail.com, or ymlevy@yellowwood.org received after last_checked and not in processed_message_ids; if the first line of the body matches exactly (case-insensitive, trimmed) "favorite <recipe name>", "remove <recipe name>", "pause", "resume", or "status", act on it (favorite = add a favorite tag to that recipe's index.html entry; remove = delete its page + index entry; pause/resume = toggle paused in state file; status = reply via Gmail with a short summary of live recipe count, favorites, paused state, last_checked) — anything else just mark processed and ignore.
 
